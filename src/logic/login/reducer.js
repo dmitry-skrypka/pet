@@ -1,31 +1,29 @@
 import defaultState from "../defaultState";
 import {
-    REGISTER_REQUEST,
-    REGISTER_FAILURE,
-    REGISTER_SUCCESS,
-    DATA_UPDATE
+    LOGIN_FAILURE,
+    LOGIN_SUCCESS,
+    DATA_UPDATE,
+    LOGIN_REQUEST
 } from './actionTypes';
-
 
 export default (state = defaultState, action) => {
     switch (action.type) {
 
-        case REGISTER_REQUEST: {
+        case LOGIN_REQUEST: {
             return {
                 ...state,
-                isLoading: true
+                // isLoading: true
             }
         }
 
-
-        case REGISTER_SUCCESS: {
+        case LOGIN_SUCCESS: {
             return {
                 ...state,
                 ...action.payload,
                 isLoading: false
             }
         }
-        case REGISTER_FAILURE: {
+        case LOGIN_FAILURE: {
             return {
                 ...state,
                 ...action.payload,

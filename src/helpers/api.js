@@ -21,6 +21,7 @@ class Api {
                     ...this.getAuthHeader()
                 }
             })
+
         ).catch(this.handleApiError);
     }
 
@@ -52,36 +53,14 @@ class Api {
         return Promise.resolve();
     }
 
-    // refreshTokens() {
-    //     const refreshToken = cookies.getRefreshToken();
-    //     if (!refreshToken) {
-    //         // when this error go to login page
-    //         return Promise.reject(new Error("refresh token not found"));
-    //     }
-    //
-    //     const url = `/api/refreshtoken/${refreshToken}`;
-    //     return this.adapter.get(url).then(response => {
-    //         const {
-    //             accessToken,
-    //             refreshToken,
-    //             accessExpiryDate,
-    //             refreshExpiryDate
-    //         } = response.data;
-    //         cookies.setTokens(
-    //             accessToken,
-    //             refreshToken,
-    //             accessExpiryDate,
-    //             refreshExpiryDate
-    //         );
-    //     });
-    // }
 
     handleApiError(err) {
         if (err.response && err.response.data) {
-            return Promise.reject(new Error(err.response.data));
+            console.log(err.response.data.error)
+            return Promise.reject(new Error(err.response.data.error))
         }
 
-        return Promise.reject(new Error(err.message));
+        return Promise.reject(new Error(err.response.data.error));
     }
 }
 

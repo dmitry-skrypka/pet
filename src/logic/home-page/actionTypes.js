@@ -1,0 +1,9 @@
+
+
+
+export const USER_LOGOUT = "USER_LOGOUT";
+
+
+export const GET_USER_REQUEST = "GET_USER:REQUEST";
+export const GET_USER_SUCCESS = "GET_USER:SUCCESS";
+export const GET_USER_FAILURE = "GET_USER:FAILURE";

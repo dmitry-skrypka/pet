@@ -3,7 +3,7 @@ import React from "react";
 import { connect } from "react-redux";
 import { mapStateToProps, mapDispatchToProps } from "./container";
 import Form from "../form";
-import { Link } from "react-router-dom";
+import {Link} from "react-router-dom";
 
 export class Registration extends React.Component {
   handleFieldChange = (name, value) => {
@@ -25,21 +25,16 @@ export class Registration extends React.Component {
   render() {
     console.log(this.props);
     return (
-      <div style={{ padding: 20 }}>
-        <div>Registration</div>
+        <div style={{ padding: 20 }}>
+            <div>Log In</div>
+            <Form
+                handleSubmit={this.handleSubmit}
+                handleChange={this.handleFieldChange}
+                msg={this.props.feedback.message}
 
-        <Form
-          handleSubmit={this.handleSubmit}
-          handleChange={this.handleFieldChange}
-          msg={this.props.feedback.message}
-        />
-        <div>
-          {" "}
-          <Link to="/login" className="btn btn-link">
-            Already registered
-          </Link>
+            />
+            <div> <Link to="/registration" className="btn btn-link">Not registered</Link></div>
         </div>
-      </div>
     );
   }
 }

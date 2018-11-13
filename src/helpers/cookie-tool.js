@@ -1,17 +1,19 @@
-import cookies from "browser-cookies";
-
+// import cookies from "browser-cookies";
+import cookies from "js-cookie";
 class CookieTool {
-    setTokens(accessToken, refreshToken, accessExpiryDate, refreshExpiryDate) {
-        cookies.set("accessToken", accessToken, {
-            expires: new Date(accessExpiryDate)
+
+    setTokens(accessToken,  accessExpiryDate) {
+        cookies.set('accessToken', accessToken, {
+            expires: accessExpiryDate
         });
-        cookies.set("refreshToken", refreshToken);
+        // cookies.set("refreshToken", refreshToken);
+        // console.log(cookies.getTokens())
     }
 
     getTokens() {
         return {
-            accessToken: cookies.get("accessToken"),
-            refreshToken: cookies.get("refreshToken")
+            accessToken: cookies.get("accessToken")
+            // refreshToken: cookies.get("refreshToken")
         };
     }
 
@@ -24,8 +26,8 @@ class CookieTool {
     }
 
     clearTokens() {
-        cookies.erase("accessToken");
-        cookies.erase("refreshToken");
+        cookies.remove("accessToken");
+        cookies.remove("refreshToken");
     }
 }
 

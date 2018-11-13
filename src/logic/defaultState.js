@@ -1,5 +1,10 @@
 const state = {
-    user: {}
+    isLoading: false,
+    user: {},
+    feedback: {
+        error: '',
+        message: ''
+    }
 };
 
 export default state;
